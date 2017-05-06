@@ -7,9 +7,11 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Drawer from 'material-ui/Drawer';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
+
 import Divider from 'material-ui/Divider';
 import AppBar from 'material-ui/AppBar';
 
+import HeaderComponent from '../components/common/HeaderComponent'
 import ListsComponent from '../containers/ListsComponentContainer';
 
 class HomePage extends Component {
@@ -33,7 +35,7 @@ class HomePage extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
-          <AppBar
+          {/*<AppBar
             title="ixigo"
             onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
           />
@@ -42,7 +44,8 @@ class HomePage extends Component {
           open={ this.state.navDrawerOpen }
           onRequestChange={(navDrawerOpen) => this.setState({navDrawerOpen})}
         >
-        </Drawer>
+        </Drawer>*/}
+          <HeaderComponent />
           <ListsComponent />
         </div>
       </MuiThemeProvider>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-
-import TaskComponent from '../task'
+import RaisedButton from 'material-ui/RaisedButton'
+import TaskComponent from '../task';
+import ListTitleComponent from './ListTitle'
 
 class ListComponent extends Component {
   render() {
@@ -10,18 +11,21 @@ class ListComponent extends Component {
     return (
       <div>
         <Card>
+            {/*actAsExpander={true}*/}
           <CardHeader
-            title="Without Avatar"
-            subtitle="Subtitle"
-            actAsExpander={true}
             showExpandableButton={true}
-          />
+          >
+            <ListTitleComponent defaultValue={ this.props.tasklist.title }/>
+            <RaisedButton label="Update Title" />
+            <RaisedButton label="Delete List" style={{float: 'right', marginRight: '40px'}} />
+            <RaisedButton label="Add task" style={{float: 'right', marginRight: '20px'}} />
+          </CardHeader>
           <CardText expandable={true}>
-          {
-            this.props.tasklist.tasks.map( task => 
-              <TaskComponent task={task}/>
-            )
-          }
+            {
+              this.props.tasklist.tasks.map(task =>
+                <TaskComponent task={task} />
+              )
+            }
           </CardText>
         </Card>
       </div>

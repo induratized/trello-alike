@@ -72,7 +72,7 @@ class ListComponent extends Component {
           <CardText expandable={true}>
             {
               this.props.tasklist.tasks.map(task =>
-                <TaskComponent task={task} key={task.id} />
+                <TaskComponent task={task} key={task.id} listid={this.props.tasklist.id} />
               )
             }
           </CardText>
@@ -80,6 +80,7 @@ class ListComponent extends Component {
         <AddTaskModal open={this.state.modalOpen}
           handleClose={this.handleAddTaskModal}
           listid={this.props.tasklist.id}
+          taskedit={false}
         />
       </div>
     )

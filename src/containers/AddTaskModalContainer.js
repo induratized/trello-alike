@@ -5,6 +5,12 @@ import AddTaskModal from '../components/task/AddTaskModal';
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    editTask: (payload) => {
+      dispatch({
+        type: 'EDIT_TASK',
+        payload
+      })
+    },
     createTask: (payload) => {
       dispatch({
         type: 'CREATE_TASK',

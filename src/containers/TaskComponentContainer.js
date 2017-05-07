@@ -10,16 +10,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editTask: () => {
-
+    moveTask: (payload) => {
+      dispatch({
+        type: 'MOVE_TASK_TO_OTHER_LIST',
+        payload
+      })
     },
 
-    moveTask: () => {
-
-    },
-
-    deleteTask: () => {
-      
+    deleteTask: (payload) => {
+      dispatch({
+        type: 'DELETE_TASK_FROM_LIST',
+        payload
+      })
     }
   }
 }

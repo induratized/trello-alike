@@ -14,17 +14,18 @@ export default class AddTaskModal extends Component {
     this.handleTaskTitleChange = this.handleTaskTitleChange.bind(this);
     this.handleAssigneeChange = this.handleAssigneeChange.bind(this);
     this.handleTaskDescription = this.handleTaskDescription.bind(this);
-
+    
     this.state = {
       tasknameError: '',
       assigneeError: '',
-      description: '',
-      assignee: '',
-      taskTitle: '',
+      description: this.props.task ? this.props.task.description : '',
+      assignee: this.props.task ? this.props.task.assignee : '',
+      taskTitle: this.props.task ? this.props.task.title : '',
     }
   }
 
   handleCreateTask() {
+    let taskid = '';
     let title = this.state.taskTitle;
     let assignee = this.state.assignee;
     let description = this.state.description;
@@ -43,16 +44,26 @@ export default class AddTaskModal extends Component {
       this.setState({ assigneeError: ''});
     }
 
+    if(this.props.taskedit) {
+      taskid = this.props.task.id
+    } else {
+      taskid = `task-${Math.floor(Math.random() * 100000)}`
+    }
+    
     let taskObj = { 
       listid: this.props.listid,
       task: {
-        id: `task-${Math.floor(Math.random() * 100000)}`, 
+        id: taskid, 
         title,
         assignee,
         description
       }
     };
-    this.props.createTask(taskObj);
+    if(this.props.taskedit) {
+      this.props.editTask(taskObj);
+    } else {
+      this.props.createTask(taskObj);
+    }
     this.props.handleClose();
   }
 
@@ -89,6 +100,8 @@ export default class AddTaskModal extends Component {
       />,
     ];
 
+    console.log('addtaskmodal taskedit- ', this.props.taskedit)
+
     return (
       <div>
         <Dialog
@@ -99,18 +112,21 @@ export default class AddTaskModal extends Component {
         >
           <TextField
             errorText = {this.state.tasknameError}
-            hintText="Enter Task name here" 
+            hintText="Enter Task name here"
+            defaultValue={this.props.taskedit ? this.state.taskTitle : ''}
             onChange={this.handleTaskTitleChange}
             floatingLabelText="Enter task name"
           /><br/>
           <TextField
             errorText = {this.state.assigneeError}
             hintText="Enter Assignee" 
+            defaultValue={this.props.taskedit ? this.state.assignee : ''}
             onChange={this.handleAssigneeChange}
             floatingLabelText="Enter Assignee name"
           /><br/>
           <TextField
             hintText="Enter Task Description"
+            defaultValue={this.props.taskedit ? this.state.description : ''}
             floatingLabelText="Enter Task Description"
             onChange={this.handleTaskDescription}
             multiLine={true}

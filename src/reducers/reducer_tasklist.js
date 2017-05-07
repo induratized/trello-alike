@@ -33,6 +33,7 @@ const TaskListReducer = (state=[], action) => {
       break;
 
     case 'CREATE_TASK':
+      console.log('before add task state - ', newState)
       let listToAddTask = state.find( obj => {
         return obj.id == action.payload.listid
       })
@@ -42,11 +43,13 @@ const TaskListReducer = (state=[], action) => {
         return obj.id != action.payload.listid;
       }) 
       newState.push(listToAddTask)
+      console.log('after add task state - ', newState)
       return newState;
       break;
 
 
     case 'EDIT_TASK':
+      console.log('before edit task state - ', state)
       let listToEditTaskTo = state.find( obj => {
         return obj.id == action.payload.listid
       })
@@ -60,11 +63,8 @@ const TaskListReducer = (state=[], action) => {
       listToEditTaskTo.tasks = newTaskArray;
       listToEditTaskTo.tasks.push(action.payload.task)
       newState.push(listToEditTaskTo)
+      console.log('after edit task newState - ', newState)
       return newState;
-      break;
-
-
-    case 'MOVE_TASK_TO_OTHER_LIST':
       break;
 
 
@@ -83,7 +83,39 @@ const TaskListReducer = (state=[], action) => {
       newState.push(listToDeleteTaskFrom)
       return newState;
       break;
+
+
+    case 'MOVE_TASK_TO_OTHER_LIST':
+      console.log('before move state - ', newState)
+      let listToMoveTaskFrom = state.find( obj => {
+        return obj.id == action.payload.fromlistid
+      })
+      let listToMoveTaskTo = state.find( obj => {
+        return obj.id == action.payload.tolistid
+      })
+      newState = newState.filter( obj => {
+        return (obj.id != action.payload.fromlistid) && (obj.id != action.payload.tolistid)
+      })
+      console.log('after removing lists - ', newState)
+      let taskToMove = listToMoveTaskFrom.tasks.find( task => {
+        return task.id == action.payload.taskid
+      }) 
+      newTaskArray = listToMoveTaskFrom.tasks.filter( task => {
+        return task.id != action.payload.taskid
+      })
+
+      listToMoveTaskTo.tasks.push(taskToMove);
+      listToMoveTaskFrom.tasks = newTaskArray;
+
+      console.log('after listToMoveTaskFrom - ', listToMoveTaskFrom)
+      console.log('after listToMoveTaskTo - ', listToMoveTaskTo)
+      newState.push(listToMoveTaskFrom)
+      newState.push(listToMoveTaskTo)
+      console.log('after move newState - ', newState)
+      return newState;
+      break;
   }
+
   return state;
 }
 

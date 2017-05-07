@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import AddListModal from '../components/list/AddListModal';
 
 
+const mapStateToProps = (state) => {
+  return {
+    tasklists: state.tasklists
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createList: (payload) => {
@@ -14,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( null, mapDispatchToProps )(AddListModal);
+export default connect( mapStateToProps, mapDispatchToProps )(AddListModal);

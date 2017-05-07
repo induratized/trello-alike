@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AddTaskModal from '../components/task/AddTaskModal';
 
+const mapStateToProps = (state) => {
+  return {
+    tasklists: state.tasklists
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -20,4 +25,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( null, mapDispatchToProps )(AddTaskModal);
+export default connect( mapStateToProps, mapDispatchToProps )(AddTaskModal);

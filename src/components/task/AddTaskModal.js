@@ -14,13 +14,16 @@ export default class AddTaskModal extends Component {
     this.handleTaskTitleChange = this.handleTaskTitleChange.bind(this);
     this.handleAssigneeChange = this.handleAssigneeChange.bind(this);
     this.handleTaskDescription = this.handleTaskDescription.bind(this);
+    this.handleTaskStatus = this.handleTaskStatus.bind(this);
     
     this.state = {
       tasknameError: '',
       assigneeError: '',
+      statusError: '',
       description: this.props.task ? this.props.task.description : '',
       assignee: this.props.task ? this.props.task.assignee : '',
       taskTitle: this.props.task ? this.props.task.title : '',
+      status: this.props.task ? this.props.task.status : '',
     }
   }
 
@@ -29,6 +32,7 @@ export default class AddTaskModal extends Component {
     let title = this.state.taskTitle;
     let assignee = this.state.assignee;
     let description = this.state.description;
+    let status = this.state.status;
 
     if(title == '') {
       this.setState({ tasknameError: 'Please enter the task name'});
@@ -56,7 +60,8 @@ export default class AddTaskModal extends Component {
         id: taskid, 
         title,
         assignee,
-        description
+        description,
+        status
       }
     };
     if(this.props.taskedit) {
@@ -83,6 +88,12 @@ export default class AddTaskModal extends Component {
   handleTaskDescription(event) {
     this.setState({
       description: event.target.value
+    });
+  }
+
+  handleTaskStatus(event) {
+    this.setState({
+      status: event.target.value
     });
   }
 
@@ -123,6 +134,13 @@ export default class AddTaskModal extends Component {
             defaultValue={this.props.taskedit ? this.state.assignee : ''}
             onChange={this.handleAssigneeChange}
             floatingLabelText="Enter Assignee name"
+          /><br/>
+          <TextField
+            errorText={this.state.statusError}
+            hintText="Enter Task Status"
+            defaultValue={this.props.taskedit ? this.state.status : ''}
+            floatingLabelText="Enter Task Status"
+            onChange={this.handleTaskStatus}
           /><br/>
           <TextField
             hintText="Enter Task Description"

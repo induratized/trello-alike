@@ -11,6 +11,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, './src'),  // New
+    host: '0.0.0.0',
+    inline: true
   },
   module: {
     rules: [

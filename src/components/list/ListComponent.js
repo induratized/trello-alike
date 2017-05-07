@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton'
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 import TaskComponent from '../task';
 import ListTitleComponent from './ListTitleComponent'
 
@@ -11,19 +12,29 @@ class ListComponent extends Component {
     super(props);
 
     this.updateListTitle = this.updateListTitle.bind(this);
+    this.handleListName = this.handleListName.bind(this);
 
+    this.state = {
+      listname: ''
+    }
   }
 
-  updateListTitle(event) {
+  handleListName(event) {
+    this.setState({
+      listname: event.target.value
+    })
+  }
+
+  updateListTitle() {
     let updateObj = {
       id: this.props.tasklist.id,
-      updatedTitle: event.target.value,
+      updatedTitle: this.state.listname,
     }
     this.props.updateListTitle(updateObj)
   }
   
   render() {
-    console.log('this.props.list', this.props.tasklist);
+    console.log('this.props.tasklist', this.props.tasklist);
     return (
       <div>
         <Card>
@@ -31,7 +42,13 @@ class ListComponent extends Component {
           <CardHeader
             showExpandableButton={true}
           >
-            <ListTitleComponent defaultValue={ this.props.tasklist.title }/>
+            {/*<ListTitleComponent defaultValue={ this.props.tasklist.title } onChange={() => this.handleListName()}/>*/}
+            <TextField
+              id="def"
+              style={{marginLeft: '-75px'}}
+              defaultValue={this.props.tasklist.title}
+              onChange={this.handleListName}
+            />
             <RaisedButton label="Update Title" onTouchTap={this.updateListTitle} /> 
             <RaisedButton label="Add task" />
             <RaisedButton label="Delete List"  />

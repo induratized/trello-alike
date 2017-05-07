@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateListTitle: (payload) => {
+      console.log('container updateListTitle- ', payload)
       dispatch(
         {
           type: 'UPDATE_LIST_TITLE',

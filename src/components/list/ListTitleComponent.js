@@ -7,6 +7,7 @@ const ListTitleComponent = (props) => {
       style={{marginLeft: '-75px'}}
       id="def"
       defaultValue={props.defaultValue}
+      onChange={this.props.onChange}
     />
   )
 }

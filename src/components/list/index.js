@@ -4,7 +4,7 @@ import {ListComponentContainer} from '../../containers/ListsComponentContainer' 
 class ListsComponent extends Component {
 
   render() {
-    console.log('this.props.tasklists', this.props.tasklists)
+    console.log('this.props.tasklists-', this.props.tasklists)
     return (
       <div>
         {

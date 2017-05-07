@@ -6,16 +6,22 @@ const ListReducer = (state=[], action) => {
       return newState;
       break;
     
-    // case 'UPDATE_LIST_TITLE':
-    //   let updatedList = state.filter(obj => {
-    //     return obj.id == action.id;
-    //   })
-    //   newState = state.filter(obj => {
-    //     return obj.id != action.id;
-    //   }) 
-    //   updatedList.title = action.updatedTitle;
-    //   return newState.push(updatedList)
-    //   break;
+    case 'UPDATE_LIST_TITLE':
+      console.log('state', state)
+      console.log('pauload', action.payload.updatedTitle)
+      let updatedList = state.find(obj => {
+        return obj.id == action.payload.id;
+      })
+      console.log('updatedList', updatedList);
+      newState = state.filter(obj => {
+        return obj.id != action.payload.id;
+      }) 
+      console.log('newState', newState)
+      updatedList.title = action.payload.updatedTitle;
+      newState.push(updatedList);
+      console.log('before retunr newState', newState)
+      return newState
+      break;
   }
   return state;
 }

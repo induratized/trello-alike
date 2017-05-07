@@ -27,7 +27,7 @@ export default class AddListPopup extends Component {
 
   handleListnameChange(event) {
     let listname = event.target.value;
-    let listObj = { id: '123', title: listname, tasks: []};
+    let listObj = { id: `list-${Math.floor(Math.random() * 100000)}`, title: listname, tasks: []};
     this.setState({ listObj });
   }
 

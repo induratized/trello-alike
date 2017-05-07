@@ -17,12 +17,9 @@ class TaskComponent extends Component {
           <CardActions>
           </CardActions>
           <CardText expandable={true}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            {this.props.task.description}
           </CardText> 
-          <FlatButton label="Edit" />
+          <FlatButton label="Edit" onTouchTap={this.handleEdit}/>
           <FlatButton label="Delete" />
           <FlatButton label="Move" />
         </Card>

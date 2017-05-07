@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AddListPopup from '../components/list/AddListPopup';
+import AddListModal from '../components/list/AddListModal';
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( null, mapDispatchToProps )(AddListPopup);
+export default connect( null, mapDispatchToProps )(AddListModal);

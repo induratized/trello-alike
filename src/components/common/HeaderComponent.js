@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AddListPopup from '../../containers/AddListPopupContainer'; 
+import AddListModal from '../../containers/AddListModalContainer'; 
 
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import RaisedButton from 'material-ui/RaisedButton'
@@ -45,7 +45,7 @@ class HeaderComponent extends Component {
         </ToolbarGroup>
         
       </Toolbar>
-      <AddListPopup open={ this.state.modalOpen } 
+      <AddListModal open={ this.state.modalOpen } 
         handleClose={() => this.handleCreateListClose()}
       />
       </div>

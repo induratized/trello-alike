@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteList: (listid) => {
       dispatch(
         {
-          type: 'UPDATE_LIST_TITLE',
+          type: 'DELETE_LIST',
           id: listid
         }
       )

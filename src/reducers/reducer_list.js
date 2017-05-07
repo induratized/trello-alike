@@ -6,21 +6,43 @@ const ListReducer = (state=[], action) => {
       return newState;
       break;
     
+    // Update list title
     case 'UPDATE_LIST_TITLE':
-      console.log('state', state)
-      console.log('pauload', action.payload.updatedTitle)
+      // console.log('state', state)
+      // console.log('pauload', action.payload.updatedTitle)
       let updatedList = state.find(obj => {
         return obj.id == action.payload.id;
       })
-      console.log('updatedList', updatedList);
+      // console.log('updatedList', updatedList);
       newState = state.filter(obj => {
         return obj.id != action.payload.id;
       }) 
-      console.log('newState', newState)
+      // console.log('newState', newState)
       updatedList.title = action.payload.updatedTitle;
       newState.push(updatedList);
-      console.log('before retunr newState', newState)
+      // console.log('before retunr newState', newState)
       return newState
+      break;
+
+    // Delete list
+    case 'DELETE_LIST':
+      newState = state.filter(obj => {
+        return obj.id != action.id;
+      }) 
+      return newState;
+      break;
+
+    case 'CREATE_TASK':
+      let listToAddTask = state.find( obj => {
+        return obj.id == action.payload.listid
+      })
+
+      listToAddTask.tasks.push(action.payload.task)
+      newState = state.filter(obj => {
+        return obj.id != action.payload.listid;
+      }) 
+      newState.push(listToAddTask)
+      return newState;
       break;
   }
   return state;

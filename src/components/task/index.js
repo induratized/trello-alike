@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 
 class TaskComponent extends Component {
@@ -22,9 +22,9 @@ class TaskComponent extends Component {
             Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
             Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
           </CardText> 
-          <RaisedButton label="Edit" />
-          <RaisedButton label="Delete" />
-          <RaisedButton label="Move" />
+          <FlatButton label="Edit" />
+          <FlatButton label="Delete" />
+          <FlatButton label="Move" />
         </Card>
       </div>
     )

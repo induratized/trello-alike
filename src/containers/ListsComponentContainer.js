@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ListsComponent from '../components/list';
+import ListComponent from '../components/list/ListComponent';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,8 +11,33 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+    updateListTitle: (payload) => {
+      dispatch(
+        {
+          type: 'UPDATE_LIST_TITLE',
+          payload
+        }
+      )
+    },
+    addTask: (payload) => {
+      dispatch(
+        {
+          type: 'ADD_TASK_TO_LIST',
+          payload
+        }
+      )
+    },
+    deleteList: (listid) => {
+      dispatch(
+        {
+          type: 'UPDATE_LIST_TITLE',
+          id: listid
+        }
+      )
+    }    
   }
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )(ListsComponent);
+export default connect( mapStateToProps, null )(ListsComponent);
+
+export const ListComponentContainer = connect(mapStateToProps, mapDispatchToProps)(ListComponent)

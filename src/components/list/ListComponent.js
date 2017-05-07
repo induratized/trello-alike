@@ -3,9 +3,25 @@ import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton'
 import TaskComponent from '../task';
-import ListTitleComponent from './ListTitle'
+import ListTitleComponent from './ListTitleComponent'
 
 class ListComponent extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.updateListTitle = this.updateListTitle.bind(this);
+
+  }
+
+  updateListTitle(event) {
+    let updateObj = {
+      id: this.props.tasklist.id,
+      updatedTitle: event.target.value,
+    }
+    this.props.updateListTitle(updateObj)
+  }
+  
   render() {
     console.log('this.props.list', this.props.tasklist);
     return (
@@ -16,9 +32,9 @@ class ListComponent extends Component {
             showExpandableButton={true}
           >
             <ListTitleComponent defaultValue={ this.props.tasklist.title }/>
-            <RaisedButton label="Update Title" />
-            <RaisedButton label="Delete List" style={{float: 'right', marginRight: '40px'}} />
-            <RaisedButton label="Add task" style={{float: 'right', marginRight: '20px'}} />
+            <RaisedButton label="Update Title" onTouchTap={this.updateListTitle} /> 
+            <RaisedButton label="Add task" />
+            <RaisedButton label="Delete List"  />
           </CardHeader>
           <CardText expandable={true}>
             {
@@ -34,3 +50,5 @@ class ListComponent extends Component {
 }
 
 export default ListComponent;
+
+//onTouchTap={this.updateListTitle}

@@ -26,7 +26,7 @@ export default class AddListPopup extends Component {
 
   handleListnameChange(event) {
     let listname = event.target.value;
-    let listObj = { id: `list-${Math.floor(Math.random() * 100000)}`, title: listname, tasks: []};
+    let listObj = { id: `list-${Math.floor(Math.random() * 100000)}`, title: listname, tasks: [] };
     this.setState({ listObj });
   }
 
@@ -53,7 +53,7 @@ export default class AddListPopup extends Component {
           open={this.props.open}
         >
           <TextField
-            errorText = {this.state.listnameError}
+            errorText={this.state.listnameError}
             hintText="Enter list name here" onChange={this.handleListnameChange}
             floatingLabelText="Enter list name"
           />

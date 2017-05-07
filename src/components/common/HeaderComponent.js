@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import AddListModal from '../../containers/AddListModalContainer'; 
+import AddListModal from '../../containers/AddListModalContainer';
 
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import RaisedButton from 'material-ui/RaisedButton'
 
 class HeaderComponent extends Component {
@@ -32,22 +32,22 @@ class HeaderComponent extends Component {
   render() {
     return (
       <div>
-      <Toolbar style={{ backgroundColor: '#673ab7'}}>
-        <ToolbarGroup>
-          <ToolbarTitle text="ixigo" style={{color: 'white', fontWeight: 'bold'}} />
-          <ToolbarSeparator />
-          <RaisedButton 
-            label="Create List"
-            backgroundColor='#009688'
-            labelColor='#FFFFFF'
-            onTouchTap={this.handleCreateListOpen}
-          />
-        </ToolbarGroup>
-        
-      </Toolbar>
-      <AddListModal open={ this.state.modalOpen } 
-        handleClose={() => this.handleCreateListClose()}
-      />
+        <Toolbar style={{ backgroundColor: '#673ab7' }}>
+          <ToolbarGroup>
+            <ToolbarTitle text="ixigo" style={{ color: 'white', fontWeight: 'bold' }} />
+            <ToolbarSeparator />
+            <RaisedButton
+              label="Create List"
+              backgroundColor='#009688'
+              labelColor='#FFFFFF'
+              onTouchTap={this.handleCreateListOpen}
+            />
+          </ToolbarGroup>
+
+        </Toolbar>
+        <AddListModal open={this.state.modalOpen}
+          handleClose={() => this.handleCreateListClose()}
+        />
       </div>
     )
   }

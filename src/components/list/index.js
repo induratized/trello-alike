@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ListComponentContainer} from '../../containers/ListsComponentContainer' ;
+import { ListComponentContainer } from '../../containers/ListsComponentContainer';
 
 class ListsComponent extends Component {
 
@@ -8,7 +8,7 @@ class ListsComponent extends Component {
     return (
       <div>
         {
-          this.props.tasklists.map( tasklist => (
+          this.props.tasklists.map(tasklist => (
             <ListComponentContainer tasklist={tasklist} key={tasklist.id} />
           ))
         }

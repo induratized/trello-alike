@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )(AddListModal);
+export default connect(mapStateToProps, mapDispatchToProps)(AddListModal);

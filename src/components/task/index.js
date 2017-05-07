@@ -12,7 +12,7 @@ class TaskComponent extends Component {
     this.handleTaskDelete = this.handleTaskDelete.bind(this);
     this.handleMoveTaskModal = this.handleMoveTaskModal.bind(this);
 
-    this.state={
+    this.state = {
       modalOpen: false,
       moveTaskModalOpen: false
     }
@@ -51,9 +51,9 @@ class TaskComponent extends Component {
           </CardActions>
           <CardText expandable={true}>
             {this.props.task.description}
-          </CardText> 
-          <FlatButton label="Edit" onTouchTap={this.handleAddTaskModal}/>
-          <FlatButton label="Delete" onTouchTap={this.handleTaskDelete}/>
+          </CardText>
+          <FlatButton label="Edit" onTouchTap={this.handleAddTaskModal} />
+          <FlatButton label="Delete" onTouchTap={this.handleTaskDelete} />
           <FlatButton label="Move" onTouchTap={this.handleMoveTaskModal} />
         </Card>
         <AddTaskModal open={this.state.modalOpen}

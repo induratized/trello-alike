@@ -2,7 +2,7 @@ import React from 'react';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 
 export default class MoveTaskModal extends React.Component {
   constructor(props) {
@@ -65,9 +65,9 @@ export default class MoveTaskModal extends React.Component {
           modal={true}
           open={this.props.open}
         >
-          <RadioButtonGroup 
-            ref='ListNames' 
-            name="ListNames" 
+          <RadioButtonGroup
+            ref='ListNames'
+            name="ListNames"
             value={this.state.moveToList}
             onChange={this.handleSelection}
           >

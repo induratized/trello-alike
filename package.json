@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
-    "build": "rm -r build | webpack --progress --colors"
+    "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors"
   },
   "keywords": [],
   "author": "",

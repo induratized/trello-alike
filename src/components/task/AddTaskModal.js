@@ -15,7 +15,7 @@ export default class AddTaskModal extends Component {
     this.handleAssigneeChange = this.handleAssigneeChange.bind(this);
     this.handleTaskDescription = this.handleTaskDescription.bind(this);
     this.handleTaskStatus = this.handleTaskStatus.bind(this);
-    
+
     this.state = {
       tasknameError: '',
       assigneeError: '',
@@ -34,37 +34,37 @@ export default class AddTaskModal extends Component {
     let description = this.state.description;
     let status = this.state.status;
 
-    if(title == '') {
-      this.setState({ tasknameError: 'Please enter the task name'});
+    if (title == '') {
+      this.setState({ tasknameError: 'Please enter the task name' });
       return false;
     } else {
-      this.setState({ tasknameError: ''});
-    } 
-
-    if ( assignee == '') {
-      this.setState({ assigneeError: 'Please enter as assignee name'});
-      return false
-    } else {
-      this.setState({ assigneeError: ''});
+      this.setState({ tasknameError: '' });
     }
 
-    if(this.props.taskedit) {
+    if (assignee == '') {
+      this.setState({ assigneeError: 'Please enter as assignee name' });
+      return false
+    } else {
+      this.setState({ assigneeError: '' });
+    }
+
+    if (this.props.taskedit) {
       taskid = this.props.task.id
     } else {
       taskid = `task-${Math.floor(Math.random() * 100000)}`
     }
-    
-    let taskObj = { 
+
+    let taskObj = {
       listid: this.props.listid,
       task: {
-        id: taskid, 
+        id: taskid,
         title,
         assignee,
         description,
         status
       }
     };
-    if(this.props.taskedit) {
+    if (this.props.taskedit) {
       this.props.editTask(taskObj);
     } else {
       this.props.createTask(taskObj);
@@ -74,8 +74,8 @@ export default class AddTaskModal extends Component {
 
   handleTaskTitleChange(event) {
     let tasktitle = event.target.value;
-    this.setState({ 
-      taskTitle: tasktitle  
+    this.setState({
+      taskTitle: tasktitle
     });
   }
 
@@ -122,26 +122,26 @@ export default class AddTaskModal extends Component {
           open={this.props.open}
         >
           <TextField
-            errorText = {this.state.tasknameError}
+            errorText={this.state.tasknameError}
             hintText="Enter Task name here"
             defaultValue={this.props.taskedit ? this.state.taskTitle : ''}
             onChange={this.handleTaskTitleChange}
             floatingLabelText="Enter task name"
-          /><br/>
+          /><br />
           <TextField
-            errorText = {this.state.assigneeError}
-            hintText="Enter Assignee" 
+            errorText={this.state.assigneeError}
+            hintText="Enter Assignee"
             defaultValue={this.props.taskedit ? this.state.assignee : ''}
             onChange={this.handleAssigneeChange}
             floatingLabelText="Enter Assignee name"
-          /><br/>
+          /><br />
           <TextField
             errorText={this.state.statusError}
             hintText="Enter Task Status"
             defaultValue={this.props.taskedit ? this.state.status : ''}
             floatingLabelText="Enter Task Status"
             onChange={this.handleTaskStatus}
-          /><br/>
+          /><br />
           <TextField
             hintText="Enter Task Description"
             defaultValue={this.props.taskedit ? this.state.description : ''}

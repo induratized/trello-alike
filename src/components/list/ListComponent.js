@@ -21,7 +21,7 @@ class ListComponent extends Component {
     this.state = {
       listname: this.props.tasklist.title,
       listNameError: '',
-      modalOpen: false 
+      modalOpen: false
     }
   }
 
@@ -48,24 +48,16 @@ class ListComponent extends Component {
       modalOpen: !this.state.modalOpen
     })
   }
-  
+
   render() {
     console.log('this.props.tasklist', this.props.tasklist);
     return (
       <div>
         <Card>
-            {/*actAsExpander={true}*/}
-          <CardHeader
-            showExpandableButton={true}
-          >
-            {/*<ListTitleComponent defaultValue={ this.props.tasklist.title } onChange={() => this.handleListName()}/>*/}
-            <TextField
-              id="def"
-              style={{marginLeft: '-75px'}}
-              defaultValue={this.props.tasklist.title}
-              onChange={this.handleListName}
-            />
-            <RaisedButton label="Update Title" onTouchTap={this.updateListTitle} /> 
+          {/*actAsExpander={true}*/}
+          <CardHeader showExpandableButton={true}>
+            <ListTitleComponent defaultValue={this.props.tasklist.title} onChange={this.handleListName} />
+            <RaisedButton label="Update Title" onTouchTap={this.updateListTitle} />
             <RaisedButton label="Add task" onTouchTap={this.handleAddTaskModal} />
             <RaisedButton label="Delete List" onTouchTap={this.handleDeleteList} />
           </CardHeader>

@@ -13,7 +13,7 @@ import Homepage from './pages'
 const persistedState = loadState();
 let store = createStore(
   RootReducer,
-  persistedState  
+  persistedState
 );
 // persistStore(store);
 store.subscribe(() => {

@@ -35,10 +35,10 @@ const mapDispatchToProps = (dispatch) => {
           id: listid
         }
       )
-    }    
+    }
   }
 }
 
-export default connect( mapStateToProps, null )(ListsComponent);
+export default connect(mapStateToProps, null)(ListsComponent);
 
 export const ListComponentContainer = connect(mapStateToProps, mapDispatchToProps)(ListComponent)

@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 
+// Material-UI components
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-// Material-UI components
-import Drawer from 'material-ui/Drawer';
-import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-
-import Divider from 'material-ui/Divider';
-import AppBar from 'material-ui/AppBar';
 
 import HeaderComponent from '../components/common/HeaderComponent'
 import ListsComponent from '../containers/ListsComponentContainer';
@@ -36,16 +30,6 @@ class HomePage extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div>
-          {/*<AppBar
-            title="ixigo"
-            onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
-          />
-          <Drawer
-          docked={false}
-          open={ this.state.navDrawerOpen }
-          onRequestChange={(navDrawerOpen) => this.setState({navDrawerOpen})}
-        >
-        </Drawer>*/}
           <HeaderComponent />
           <ListsComponent />
         </div>

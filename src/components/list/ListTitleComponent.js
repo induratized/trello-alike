@@ -4,10 +4,10 @@ import TextField from 'material-ui/TextField';
 const ListTitleComponent = (props) => {
   return (
     <TextField
-      style={{marginLeft: '-75px'}}
-      id="def"
+      style={{ marginLeft: '-75px' }}
+      id="listtile"
       defaultValue={props.defaultValue}
-      onChange={this.props.onChange}
+      onChange={props.onChange}
     />
   )
 }

@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )(AddTaskModal);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTaskModal);
